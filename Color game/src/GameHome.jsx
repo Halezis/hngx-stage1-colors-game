@@ -1,10 +1,6 @@
 import { useState } from 'react'
 
 export default function GameHome() {
-  const [gameStatus, setGameStatus] = useState('')
-  const [gameScore, setGameScore] = useState(0)
-  const [targetColor, setTargetColor] = useState(getTargetColor(colors))
-
   // colors array
   const colors = [
     '#FF0000',
@@ -14,6 +10,12 @@ export default function GameHome() {
     '#FF00FF',
     '#00FFFF',
   ]
+
+  const [gameStatus, setGameStatus] = useState('')
+  const [gameScore, setGameScore] = useState(0)
+  const [targetColor, setTargetColor] = useState(getTargetColor(colors))
+
+
 
   // randomly generate the target color from colors array
   function getTargetColor(colors) {
@@ -70,6 +72,7 @@ export default function GameHome() {
         className={`gameStatus
     ${gameStatus ? 'visible' : ''}
     ${gameStatus === 'Correct!' ? 'correct' : 'wrong'}`}
+        data-testid="gameStatus"
       >
         {gameStatus}
       </div>
